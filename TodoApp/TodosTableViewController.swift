@@ -9,39 +9,73 @@ import UIKit
 
 class TodosTableViewController: UITableViewController {
 
-    var todos = [
-        Todo(id: 0, content: "Write a todo app", doing: false),
-        Todo(id: 1, content: "Get up before 8", doing: false),
-        Todo(id: 2, content: "Status: doing", doing: true)
-    ]
-    
+    var tasks = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.isEditing = true
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Setup
+        if !UserDefaults().bool(forKey: "setup") {
+            print("Setup UserDefault")
+            UserDefaults().set(true, forKey: "setup")
+            // Current number of tasks 
+            UserDefaults().set(0, forKey: "count")
+            print("set up the data, count == ", UserDefaults().value(forKey: "count")!)
+        }
+        print("call updateTasks()")
+        //reomveAllTasks()
+        updateTasks()
     }
 
+    
+    func updateTasks(){
+        print("updateTasks()")
+        tasks.removeAll()
+        guard let count = UserDefaults().value(forKey: "count") as? Int else {
+            return
+        }
+        
+        for x in 0...count {
+            if let task = UserDefaults().value(forKey: "task_\(x + 1)") as? String{
+                tasks.append(task)
+            }
+        }
+        //print("the lastest task is ", UserDefaults.value(forKey: "task_\(count+1)")!)
+    }
     // MARK: - Table view data source
+
+    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    */
+    
+    // Number of rows
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        return todos.count
+        print("tableView called count = ", tasks.count)
+        return tasks.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
 
-        cell.textLabel?.text = todos[indexPath.row].content
-
+        cell.textLabel?.text = tasks[indexPath.row]
+        print("tableView called text = ", cell.textLabel?.text)
         return cell
     }
     
+    func reomveAllTasks() {
+        if let count = UserDefaults().value(forKey: "count") as? Int {
+            for i in 0...count {
+                UserDefaults().removeObject(forKey: "task_\(i + 1)")
+            }
+        }
+    }
+    /*
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Section \(section)"
     }
@@ -59,10 +93,6 @@ class TodosTableViewController: UITableViewController {
         todos.remove(at: sourceIndexPath.row)
         todos.insert(moveObject, at: destinationIndexPath.row)
     }
+ */
 }
 
-struct Todo {
-    var id: Int
-    var content: String
-    var doing: Bool
-}

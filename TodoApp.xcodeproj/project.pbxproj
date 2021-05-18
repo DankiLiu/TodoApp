@@ -14,6 +14,7 @@
 		B26562F2264C5C61008E670F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26562F0264C5C61008E670F /* LaunchScreen.storyboard */; };
 		B26562FA264C6208008E670F /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26562F9264C6208008E670F /* TodosTableViewController.swift */; };
 		B26562FC264D1CF3008E670F /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26562FB264D1CF3008E670F /* TodoViewController.swift */; };
+		B26562FE264DCE71008E670F /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26562FD264DCE71008E670F /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B26562F3264C5C61008E670F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B26562F9264C6208008E670F /* TodosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
 		B26562FB264D1CF3008E670F /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		B26562FD264DCE71008E670F /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B26562E5264C5C60008E670F /* AppDelegate.swift */,
 				B26562E7264C5C60008E670F /* SceneDelegate.swift */,
 				B26562EB264C5C60008E670F /* Main.storyboard */,
+				B26562FD264DCE71008E670F /* TaskViewController.swift */,
 				B26562FB264D1CF3008E670F /* TodoViewController.swift */,
 				B26562F9264C6208008E670F /* TodosTableViewController.swift */,
 				B26562EE264C5C61008E670F /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				B26562FC264D1CF3008E670F /* TodoViewController.swift in Sources */,
 				B26562E6264C5C60008E670F /* AppDelegate.swift in Sources */,
+				B26562FE264DCE71008E670F /* TaskViewController.swift in Sources */,
 				B26562E8264C5C60008E670F /* SceneDelegate.swift in Sources */,
 				B26562FA264C6208008E670F /* TodosTableViewController.swift in Sources */,
 			);

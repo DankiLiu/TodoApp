@@ -11,18 +11,24 @@ class TodoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     
     @IBAction func addTodoItem(_ sender: UIButton) {
-        var todoTableViewController: TodosTableViewController = TodosTableViewController()
-        var todos = todoTableViewController.todos
-        var newTodo: Todo = Todo(id: todos.count + 1, content: "This is a new todo", doing: false)
-        todos.append(newTodo)
-        todoTableViewController.tableView.reloadData()
-        print("button on click")
+        print("Add button tapped")
+        let vc = storyboard?.instantiateViewController(identifier: "task") as! TaskViewController
+        vc.title = "New Task"
+        
+        let vcTableview = storyboard?.instantiateViewController(identifier: "tableview") as! TodosTableViewController
+        
+        vc.updateTask = {
+            print("Call updateTaks")
+            DispatchQueue.main.async {
+                print("updateTasks called from TodoViewController")
+                vcTableview.updateTasks()
+            }
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     /*

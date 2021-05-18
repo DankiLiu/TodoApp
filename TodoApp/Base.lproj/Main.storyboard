@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kd9-rj-Tdn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2wi-oT-vkR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -26,9 +26,6 @@
                                 <rect key="frame" x="321" y="44" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="addTodoItem:" destination="Kd9-rj-Tdn" eventType="touchUpInside" id="yyt-8h-Qzz"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ign-MG-puq"/>
@@ -40,15 +37,61 @@
                             <constraint firstItem="Ht2-ke-HbH" firstAttribute="centerX" secondItem="Nhw-Et-haJ" secondAttribute="centerX" id="o3p-p7-5db"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="umd-cb-CDj">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="T87-d2-ceZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ovu-q3-bpb">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTodoItem:" destination="Kd9-rj-Tdn" eventType="touchUpInside" id="fW3-YI-rKK"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epe-ma-9ze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1152.1739130434783" y="85.714285714285708"/>
+            <point key="canvasLocation" x="-242.0289855072464" y="85.714285714285708"/>
+        </scene>
+        <!--Task View Controller-->
+        <scene sceneID="iHj-zZ-xtb">
+            <objects>
+                <viewController storyboardIdentifier="task" id="Bpv-hQ-T44" customClass="TaskViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZfH-jO-JnG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AO2-vg-9be">
+                                <rect key="frame" x="20" y="64" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="c4g-Sc-g3L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m15-Q1-Qfu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AO2-vg-9be" firstAttribute="centerX" secondItem="ZfH-jO-JnG" secondAttribute="centerX" id="iWv-Tj-xPX"/>
+                            <constraint firstItem="AO2-vg-9be" firstAttribute="leading" secondItem="m15-Q1-Qfu" secondAttribute="leading" constant="20" id="oW9-vL-CXG"/>
+                            <constraint firstItem="m15-Q1-Qfu" firstAttribute="trailing" secondItem="AO2-vg-9be" secondAttribute="trailing" constant="20" id="qc6-KT-X8x"/>
+                            <constraint firstItem="AO2-vg-9be" firstAttribute="top" secondItem="m15-Q1-Qfu" secondAttribute="top" constant="20" id="uJ6-ZI-NCj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="field" destination="AO2-vg-9be" id="77G-ai-6LJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Zq-ut-483" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1152.1739130434783" y="755.35714285714278"/>
         </scene>
         <!--Todos Table View Controller-->
         <scene sceneID="TJU-n8-De7">
             <objects>
-                <tableViewController id="PUx-z5-dwI" customClass="TodosTableViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableview" id="PUx-z5-dwI" customClass="TodosTableViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="atN-Tz-NBw">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +131,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7X-Hg-1Jt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-301" y="47"/>
+            <point key="canvasLocation" x="608.69565217391312" y="46.875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pGW-oh-u6U">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2wi-oT-vkR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2f-17-Kzx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kd9-rj-Tdn" kind="relationship" relationship="rootViewController" id="ePI-rT-CMT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IlF-gD-EtR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1152.1739130434783" y="85.714285714285708"/>
         </scene>
     </scenes>
     <resources>
